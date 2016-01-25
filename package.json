@@ -5,7 +5,7 @@
   "files": [
     "app",
     "component",
-    "reducer",
+    "reducer"
   ],
   "repository": {
     "type": "git",
