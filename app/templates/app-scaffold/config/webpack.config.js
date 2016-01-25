@@ -28,6 +28,7 @@ module.exports = {
             'node_modules',
             path.join(process.cwd(), 'app', 'client'),
             path.join(process.cwd(), 'app', 'tests'),
+            path.join(process.cwd(), 'app', 'plugins'),
         ],
     },
     module: {
