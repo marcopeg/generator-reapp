@@ -1,6 +1,6 @@
 {
-  "name": "generator-rekit",
-  "version": "0.0.7",
+  "name": "generator-reapp",
+  "version": "0.0.1",
   "description": "React/Redux client application",
   "files": [
     "app",
@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcopeg/generator-rekit.git"
+    "url": "git+https://github.com/marcopeg/generator-reapp.git"
   },
   "keywords": [
     "yeoman-generator",
@@ -33,7 +33,7 @@
   "author": "Marco Pegoraro <marco.pegoraro@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marcopeg/generator-rekit/issues"
+    "url": "https://github.com/marcopeg/generator-reapp/issues"
   },
-  "homepage": "https://github.com/marcopeg/generator-rekit#readme"
+  "homepage": "https://github.com/marcopeg/generator-reapp#readme"
 }
