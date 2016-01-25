@@ -10,12 +10,30 @@ module.exports = generators.Base.extend({
 
         this.argument('appname', {
             type: 'string',
-            default: 'Rekit App',
+            default: '---',
         });
 
     },
 
     prompting: {
+
+        appName: function () {
+            var done = this.async();
+            this.prompt([{
+                type: 'input',
+                name: 'appname',
+                message: 'What is the name of your app?',
+                default: 'Rekit App',
+                when: function () {
+                    return this.appname === '---';
+                }.bind(this),
+            }], function (answers) {
+                if (answers.appname) {
+                    this.appname = answers.appname;
+                }
+                done();
+            }.bind(this));
+        },
 
         npmSetup: function () {
 
@@ -53,7 +71,6 @@ module.exports = generators.Base.extend({
                 done();
             }.bind(this));
         },
-
     },
 
     writing: {
@@ -90,7 +107,6 @@ module.exports = generators.Base.extend({
                 );
             }.bind(this));
         },
-
     },
 
     install: {
@@ -117,7 +133,6 @@ module.exports = generators.Base.extend({
                 this.spawnCommand('npm', ['run', 'install-cov']);
             }
         },
-
     },
 
 });
