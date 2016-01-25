@@ -1,0 +1,9 @@
+node_modules
+bower_components
+app/env.local.js
+dist/app.min.js
+dist/app.js
+dist/app.js.map
+dist/guide.js
+dist/guide.js.map
+test-coverage-report

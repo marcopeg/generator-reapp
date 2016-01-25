@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title><%= appName %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="app.js"></script>
+        <script>
+        (function(app) {
+            var target = document.getElementById('app');
+            var payload = {title: 'Hello World! (dev)'};
+            app.start(target, payload);
+        })(app);
+        </script>
+    </body>
+</html>

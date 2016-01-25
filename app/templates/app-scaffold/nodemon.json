@@ -1,0 +1,12 @@
+{
+  "ignore": [
+    "app/client/**/*",
+    "app/plugins/**/*",
+    "app/styleguide/**/*",
+    "app/tests/**/*",
+    "dist/**/*",
+    "node_modules/**/*",
+    "bower_components/**/*",
+    ".git/**/*"
+  ]
+}

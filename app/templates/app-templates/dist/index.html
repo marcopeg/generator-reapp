@@ -1,0 +1,21 @@
+
+<html>
+    <head>
+        <title><%= appName %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="react/dist/react.min.js"></script>
+        <script src="react/dist/react-dom.min.js"></script>
+        <script src="app.min.js"></script>
+        <script>
+        (function(app) {
+            var target = document.getElementById('app');
+            var payload = {title: 'Hello World (prod)'};
+            app.start(target, payload);
+        })(app);
+        </script>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "generator-rekit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React/Redux client application",
   "files": [
     "app"
@@ -17,6 +17,8 @@
     "app"
   ],
   "dependencies": {
+    "fs-extra": "^0.26.4",
+    "lodash": "^4.0.0",
     "yeoman-generator": "^0.22.x"
   },
   "devDependencies": {
