@@ -44,7 +44,7 @@ The testing environment is based on `KarmaJS` and requires some packages that ar
 
 ```
 // install test suite modules
-npm run setup-tdd
+npm run install-tdd
 ```
 
 Single run test:
@@ -64,7 +64,7 @@ npm run tdd
 Test coverage requires few more dependecies to be installed:
 
 ```
-npm run setup-cov
+npm run install-cov
 ```
 
 Then you can run:
