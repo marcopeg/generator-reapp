@@ -1,12 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
 var appEnv = require('../app/env');
+var serverConf = require('./server.conf');
 
 module.exports = {
     devtool: 'sourcemaps',
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:3000',
+            'webpack-dev-server/client?http://' + serverConf.host + ':' + serverConf.port,
             'webpack/hot/only-dev-server',
             path.join(process.cwd(), 'app/client/app.dev'),
         ],

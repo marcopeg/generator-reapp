@@ -4,18 +4,32 @@
 
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
+
+var webpackConfig = require('./config/webpack.config');
 var serverCfg = require('./config/server.conf');
 
 // detect the request to run the styleguide
 var isStyleguide = process.argv.join(' ').indexOf('--guide') !== -1;
 
-var webpackConfig;
+// load styleguide speciific configuration
 if (isStyleguide) {
     webpackConfig = require('./config/webpack.config.guide');
-} else {
-    webpackConfig = require('./config/webpack.config');
-}
+    var appEnv = require('./app/env');
 
+    var args = process.argv.slice(3);
+    if (args.length) {
+        appEnv.__STYLEGUIDE_COMPONENT__ = JSON.stringify(args[0]);
+    } else {
+        appEnv.__STYLEGUIDE_COMPONENT__ = JSON.stringify('--no-component--');
+    }
+
+    webpackConfig.plugins.map(function (plugin) {
+        if (plugin instanceof webpack.DefinePlugin) {
+            return new webpack.DefinePlugin(appEnv);
+        }
+        return plugin;
+    });
+}
 
 
 new WebpackDevServer(webpack(webpackConfig), {
