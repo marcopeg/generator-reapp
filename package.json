@@ -1,6 +1,6 @@
 {
   "name": "generator-rekit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React/Redux client application",
   "files": [
     "app",
