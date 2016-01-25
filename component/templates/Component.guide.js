@@ -7,13 +7,13 @@ import { <%= componentName %> } from 'components/<%= componentName %>';
 export default class <%= componentName %>GuideComponent extends React.Component {
     render() {
         return (
-            <div className="container">
-                <PageHeader>Generic <%= componentName %></PageHeader>
+            <Grid>
+                <PageHeader><%= componentName %> <small>whithout propertied</small></PageHeader>
                 <<%= componentName %> />
 
-                <PageHeader><%= componentName %> with value</PageHeader>
+                <PageHeader><%= componentName %> <small>with value</small></PageHeader>
                 <<%= componentName %> val="Content for the component" />
-            </div>
+            </Grid>
         );
     }
 }
