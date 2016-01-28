@@ -92,6 +92,7 @@ module.exports = generators.Base.extend({
                 'config/client.html',
                 'config/guide.html',
                 'dist/index.html',
+                'app/styleguide/index.js',
             ];
 
             var templateData = {

@@ -1,19 +1,34 @@
 import React from 'react';
+import { GuidePage, GuideSection } from '../index';
+
 import { HelloWorld } from 'components/HelloWorld';
 
 export default class FooSpec extends React.Component {
     render() {
-
-        var availableTitleSizes = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].map((tag, i) =>
-            <HelloWorld key={i} tag={tag}>Title {tag}</HelloWorld>
-        );
-
         return (
-            <div className="container">
-                <HelloWorld>with <b>children</b> content</HelloWorld>
-                <HelloWorld content="with content from params" />
-                {availableTitleSizes}
-            </div>
+            <GuidePage>
+
+                <GuideSection title="HelloWorld - with children content">
+                    <HelloWorld>with <b>children</b> content</HelloWorld>
+                </GuideSection>
+
+                <GuideSection title="HelloWorld - with content from params">
+                    <HelloWorld content="with content from params" />
+                </GuideSection>
+
+                <GuideSection title="HelloWorld - tag H1">
+                    <HelloWorld tag="h1">Title H1</HelloWorld>
+                </GuideSection>
+
+                <GuideSection title="HelloWorld - tag H2">
+                    <HelloWorld tag="h2">Title H2</HelloWorld>
+                </GuideSection>
+
+                <GuideSection title="HelloWorld - tag H3">
+                    <HelloWorld tag="h3">Title H3</HelloWorld>
+                </GuideSection>
+
+            </GuidePage>
         );
     }
 }

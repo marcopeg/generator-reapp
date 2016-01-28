@@ -4,19 +4,19 @@ import React from 'react';
 export class <%= componentName %> extends React.Component {
 
     static propTypes = {
-        val: React.PropTypes.string,
+        value: React.PropTypes.string,
     }
 
     static defaultProps = {
-        val: 'A New Component',
+        value: 'A New Component',
     }
 
     render() {
-        var { val } = this.props;
+        var { value } = this.props;
 
         return (
             <div>
-                {val}
+                {value}
             </div>
         );
     }
