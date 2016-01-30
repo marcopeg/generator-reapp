@@ -14,7 +14,7 @@ export default class <%= componentName %>GuideComponent extends React.Component 
                 </SGSection>
 
                 <SGSection title="<%= componentName %> - with value property">
-                    <<%= componentName %> val="Content for the component" />
+                    <<%= componentName %> value="Content for the component" />
                 </SGSection>
 
             </SGPage>
