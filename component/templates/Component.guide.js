@@ -1,5 +1,5 @@
 import React from 'react';
-import { GuidePage, GuideSection } from '../index';
+import { SGPage, SGSection } from 'reapp-dev-tools';
 
 
 import { <%= componentName %> } from 'components/<%= componentName %>';
@@ -7,17 +7,17 @@ import { <%= componentName %> } from 'components/<%= componentName %>';
 export default class <%= componentName %>GuideComponent extends React.Component {
     render() {
         return (
-            <GuidePage>
+            <SGPage>
 
-                <GuideSection title="<%= componentName %> - without properties">
+                <SGSection title="<%= componentName %> - without properties">
                     <<%= componentName %> />
-                </GuideSection>
+                </SGSection>
 
-                <GuideSection title="<%= componentName %> - with value property">
+                <SGSection title="<%= componentName %> - with value property">
                     <<%= componentName %> val="Content for the component" />
-                </GuideSection>
+                </SGSection>
 
-            </GuidePage>
+            </SGPage>
         );
     }
 }

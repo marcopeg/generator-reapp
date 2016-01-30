@@ -8,6 +8,7 @@ export class HelloWorld extends React.Component {
         content: React.PropTypes.string,
         children: React.PropTypes.oneOfType([
             React.PropTypes.element,
+            React.PropTypes.array,
             React.PropTypes.string,
             React.PropTypes.number,
         ]),
@@ -20,12 +21,13 @@ export class HelloWorld extends React.Component {
 
     render() {
         var { content, tag, children } = this.props;
-        content = content || children;
 
-        content = React.createElement(tag, null, content);
+        content = React.createElement(tag, null, (
+            <span>HelloWorld - <small>{content || children}</small></span>
+        ));
 
         return (
-            <div className="page-header">
+            <div className="hello-world">
                 {content}
             </div>
         );

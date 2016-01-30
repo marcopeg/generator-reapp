@@ -88,4 +88,11 @@ module.exports = {
             'es7.decorators',
         ],
     },
+    devServer: {
+        hot: true,
+        historyApiFallback: true,
+        stats: {
+            colors: true,
+        },
+    },
 };
