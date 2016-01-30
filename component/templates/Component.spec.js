@@ -8,8 +8,8 @@ import { <%= componentName %> } from 'components/<%= componentName %>';
 
 describe('<%= componentName %> Component', () => {
     it('should render without exceptions', () => {
-        var cmp = ReactTestUtils.renderIntoDocument(<<%= componentName %> val="foo" />);
+        var cmp = ReactTestUtils.renderIntoDocument(<<%= componentName %> value="<%= componentName %>" />);
         var nod = ReactDOM.findDOMNode(cmp);
-        expect(nod.innerText).to.equal('foo');
+        expect(nod.innerText).to.equal('<%= componentName %>');
     });
 });
