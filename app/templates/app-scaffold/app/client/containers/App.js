@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Grid from 'react-bootstrap/lib/Grid';
-import { HelloWorld } from 'components/HelloWorld';
 
 @connect(s => s.app)
 export class App extends React.Component {
@@ -15,8 +14,7 @@ export class App extends React.Component {
     render() {
         return (
             <Grid>
-                <HelloWorld content={this.props.title} />
-                <p>here you can write your app...</p>
+                <p>{this.props.title}</p>
             </Grid>
         );
     }

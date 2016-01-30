@@ -3,6 +3,8 @@ var webpack = require('webpack');
 var config = require('./webpack.config');
 var appEnv = require('../app/env');
 
+appEnv['process.env.NODE_ENV'] = '"production"';
+
 config.entry = ['./app/client/app.prod'];
 
 config.output.filename = 'app.min.js';

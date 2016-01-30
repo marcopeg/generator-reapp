@@ -23,7 +23,7 @@ module.exports = generators.Base.extend({
                 type: 'input',
                 name: 'appname',
                 message: 'What is the name of your app?',
-                default: 'Rekit App',
+                default: 'Reapp Project',
                 when: function () {
                     return this.appname === '---';
                 }.bind(this),
