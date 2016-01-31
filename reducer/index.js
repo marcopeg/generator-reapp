@@ -40,15 +40,22 @@ module.exports = generators.Base.extend({
     writing: {
         componentTemplate: function () {
             var reducerName = _.camelCase(this.reducerName);
-            var fileName = _.kebabCase(this.reducerName) + '-reducer.js';
+            var reducerFile = _.kebabCase(this.reducerName);
 
             var templateData = {
                 reducerName: reducerName,
+                reducerFile: reducerFile,
             };
 
             this.fs.copyTpl(
                 this.templatePath('reducer.js'),
-                this.destinationPath('app', 'client', 'reducers', fileName),
+                this.destinationPath('app', 'client', 'reducers', reducerFile + '-reducer.js'),
+                templateData
+            );
+
+            this.fs.copyTpl(
+                this.templatePath('actions.js'),
+                this.destinationPath('app', 'client', 'actions', reducerFile + '-actions.js'),
                 templateData
             );
         },
