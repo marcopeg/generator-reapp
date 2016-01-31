@@ -170,9 +170,11 @@ module.exports = generators.Base.extend({
         sayGoodbye: function () {
             this.log('');
             this.log('#');
-            this.log('# Everything is fine and you can just work on your new app:');
+            this.log('# ----------------------------------------------------------');
+            this.log('#  Everything is fine and you can just work on your new App');
+            this.log('# ----------------------------------------------------------');
             this.log('#');
-            this.log('# cd ' + _.kebabCase(this.appname));
+            this.log('# cd ./' + _.kebabCase(this.appname));
             this.log('#');
             if (!this.npmConfig['npm-default']) {
                 this.log('# npm run install:full   - install npm dependencies');

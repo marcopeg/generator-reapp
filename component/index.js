@@ -143,9 +143,9 @@ module.exports = generators.Base.extend({
     end: {
         sayGoodbye: function () {
             this.log('');
-            this.log('# ------------------------ #');
-            this.log('# Your component is ready! #');
-            this.log('# ------------------------ #');
+            this.log('# --------------------------');
+            this.log('#  Your component is ready!');
+            this.log('# -------------------------- ');
             this.log('#');
             this.log('# Use your component in the App:');
             this.log('# import { ' + this.componentName + ' } from \'components/' + this.componentName + '\';');
