@@ -13,6 +13,10 @@ module.exports = generators.Base.extend({
             default: '---',
         });
 
+        if (this.componentName !== '---') {
+            this.componentName = _.upperFirst(_.camelCase(this.componentName));
+        }
+
     },
 
     prompting: {
@@ -133,6 +137,25 @@ module.exports = generators.Base.extend({
                 this.destinationPath('app', 'styleguide', 'components', fileName),
                 templateData
             );
+        },
+    },
+
+    end: {
+        sayGoodbye: function () {
+            this.log('');
+            this.log('# ------------------------ #');
+            this.log('# Your component is ready! #');
+            this.log('# ------------------------ #');
+            this.log('#');
+            this.log('# Use your component in the App:');
+            this.log('# import { ' + this.componentName + ' } from \'components/' + this.componentName + '\';');
+            if (this.componentGuide) {
+                this.log('#');
+                this.log('# Work on your component:');
+                this.log('# npm start ' + this.componentName);
+            }
+            this.log('#');
+            this.log('');
         },
     },
 

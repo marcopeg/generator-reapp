@@ -49,7 +49,7 @@ This command will guide you throth the setup and you may optionally build a _Uni
 
 The best way to work on a newly generated component is to run his _Styleguide_ page:
 
-	npm run guide SpeedIndicator
+	npm start SpeedIndicator
 
 > A _Styleguide_ is a dull application that renders one single component in many 
 > different ways and allows for **isolated develpment and manual testing**.

@@ -36,11 +36,6 @@ module.exports = generators.Base.extend({
         },
 
         npmSetup: function () {
-
-            this.log('##');
-            this.log('## Now I am going to ask you how to setup the project\'s dependencies:');
-            this.log('##');
-
             var done = this.async();
             this.prompt([{
                 type: 'confirm',
@@ -50,12 +45,21 @@ module.exports = generators.Base.extend({
                 store: true,
             }, {
                 type: 'confirm',
+                name: 'npm-lint',
+                message: 'Do you want me to install "Linting" dependencies for you?',
+                default: false,
+                store: true,
+                when: function (answers) {
+                    return answers['npm-default'] === true;
+                },
+            }, {
+                type: 'confirm',
                 name: 'npm-tdd',
                 message: 'Do you want me to install "Test Suite" dependencies for you?',
                 default: false,
                 store: true,
                 when: function (answers) {
-                    return answers['npm-default'];
+                    return answers['npm-default'] === true;
                 },
             }, {
                 type: 'confirm',
@@ -64,7 +68,7 @@ module.exports = generators.Base.extend({
                 default: false,
                 store: true,
                 when: function (answers) {
-                    return answers['npm-tdd'];
+                    return answers['npm-tdd'] === true;
                 },
             }], function (answers) {
                 this.npmConfig = answers;
@@ -112,27 +116,74 @@ module.exports = generators.Base.extend({
 
     install: {
 
-        npmBase: function () {
-            if (!this.npmConfig['npm-default']) {
-                return;
+        npmTimeExt: function () {
+            var minutes = 0;
+            if (this.npmConfig['npm-default']) {
+                minutes += 4;
             }
-            this.log('Now we are going to install all the "Development Dependencies"...');
-            this.log('You\'d better take a coffee now!');
-            this.npmInstall();
+            if (this.npmConfig['npm-lint']) {
+                minutes += 1;
+            }
+            if (this.npmConfig['npm-tdd']) {
+                minutes += 3;
+            }
+            if (this.npmConfig['npm-cov']) {
+                minutes += 1;
+            }
+
+            if (minutes) {
+                this.log('');
+                this.log('#');
+                this.log('# Now we are going to install NPM dependencies for your project,');
+                this.log('# it\s going to take ' + minutes + '-' + (minutes + 1) + ' minutes:');
+                this.log('#');
+                this.log('# You\'d better take a good cup of coffee now!');
+                this.log('#');
+                this.log('');
+            }
+
+        },
+
+        npmBase: function () {
+            if (this.npmConfig['npm-default']) {
+                this.npmInstall();
+            }
+        },
+
+        npmLint: function () {
+            if (this.npmConfig['npm-lint']) {
+                this.spawnCommand('npm', ['run', 'install:tdd']);
+            }
         },
 
         npmTdd: function () {
-            if (!this.npmConfig['npm-tdd']) {
-                return;
+            if (this.npmConfig['npm-tdd']) {
+                this.spawnCommand('npm', ['run', 'install:tdd']);
             }
-            this.log('Now we are going to install all the "Test Suite" dependencies...');
-            this.log('You\'d better take ANOTHER BIG CUP OF COFFEE!');
-            this.spawnCommand('npm', ['run', 'install-tdd']);
-
-            // test coverage is another optional install.
             if (this.npmConfig['npm-cov']) {
-                this.spawnCommand('npm', ['run', 'install-cov']);
+                this.spawnCommand('npm', ['run', 'install:cov']);
             }
+        },
+    },
+
+    end: {
+        sayGoodbye: function () {
+            this.log('');
+            this.log('#');
+            this.log('# Everything is fine and you can just work on your new app:');
+            this.log('#');
+            this.log('# cd ' + _.kebabCase(this.appname));
+            this.log('#');
+            if (!this.npmConfig['npm-default']) {
+                this.log('# npm run install:full   - install npm dependencies');
+            }
+            this.log('# npm start              - run the app');
+            this.log('# npm start guide        - show the components styleguide');
+            this.log('# yo reapp:component     - generate a new React component');
+            this.log('#');
+            this.log('# Have fun with Reapp!');
+            this.log('#');
+            this.log('');
         },
     },
 

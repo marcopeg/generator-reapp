@@ -6,7 +6,15 @@
 
 ## First Setup
 
-	npm install
+```
+npm install
+```
+    
+**NOTE:** this command will install the library that are essential to the execution of your app and _Styleguide_. If you plan to run quality tasks such linting and testing you'd better run the full install:
+
+```
+npm run full
+```
 
 ## Run the App - development
 
@@ -23,7 +31,7 @@ npm start
 ## Run the App - production
 
 You can run the application in _production mode_ (minified bundle, without development & debug facilities):
-	
+    
 ```
 npm run app
 ```
@@ -46,18 +54,21 @@ npm start ComponentName
 Sometimes you need to take a look at the ensable of _Components_ that are defined in you application. The _Styleguide_ is exactly what you need:
 
 ```
-npm start styleguide
+npm start guide
 ```
 
 
 ## Code Quality (eslint)
 
 ```
+// install linting libraries
+npm run install:lint
+
 // through NPM interface (*)
-npm run eslint
-	
-// or direct invocation
-./node_modules/eslint/bin/eslint.js ./**/*.js
+npm run lint
+    
+// or
+./node_modules/eslint/bin/eslint.js ./
 ```
 
 _(*) In case of errors it shows an horrible NPM related error trace which is completely unrelated to the real code investigation. Just ignore it or run the direct invocation command._
@@ -67,8 +78,8 @@ _(*) In case of errors it shows an horrible NPM related error trace which is com
 The testing environment is based on `KarmaJS` and requires some packages that are not installed by default.
 
 ```
-// install test suite modules
-npm run install-tdd
+// install test suite libraries
+npm run install:tdd
 ```
 
 Single run test:
@@ -88,7 +99,8 @@ npm run tdd
 Test coverage requires few more dependecies to be installed:
 
 ```
-npm run install-cov
+// install test coverage libraries
+npm run install:cov
 ```
 
 Then you can run:
