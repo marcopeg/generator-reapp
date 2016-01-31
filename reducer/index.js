@@ -103,6 +103,7 @@ module.exports = generators.Base.extend({
 
 
     writing: {
+
         componentTemplate: function () {
             var reducerName = _.camelCase(this.reducerName);
             var reducerFile = _.kebabCase(this.reducerName);
@@ -171,15 +172,14 @@ module.exports = generators.Base.extend({
             var reducersFilePath = this.destinationPath('app', 'client', 'reducers', 'index.js');
             var reducersSrc = this.fs.read(reducersFilePath);
 
-            var listStr = 'export const reducers = {';
-            var lastItemStr = 'Reducer,\n};';
+            var listStr = '/* reapp: import new reducer */';
+            var appendStr = '/* reapp: append new reducer */';
 
             var importCmd = 'import { ' + reducerName + 'Reducer } from \'reducers/' + reducerFile + '-reducer\';\n';
-            var listCmd = '    ' + reducerName + ': ' + reducerName + 'Reducer,\n';
+            var appendCmd = '' + reducerName + ': ' + reducerName + 'Reducer,\n    ';
 
-            reducersSrc = reducersSrc.replace(listStr, importCmd + '\n' + listStr);
-            reducersSrc = reducersSrc.replace(';\n\nimport', ';\nimport');
-            reducersSrc = reducersSrc.replace(lastItemStr, 'Reducer,\n' + listCmd + '};');
+            reducersSrc = reducersSrc.replace(listStr, importCmd + listStr);
+            reducersSrc = reducersSrc.replace(appendStr, appendCmd + appendStr);
 
             this.fs.write(reducersFilePath, reducersSrc);
         },
