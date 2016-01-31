@@ -13,7 +13,7 @@
         <script>
         (function(app) {
             var target = document.getElementById('app');
-            var payload = {title: 'Hello World (prod)'};
+            var payload = {title: '<%= appName %> - prod'};
             app.start(target, payload);
         })(app);
         </script>
