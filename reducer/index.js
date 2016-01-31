@@ -79,6 +79,26 @@ module.exports = generators.Base.extend({
 
             this.prompt(question, onAnswer);
         },
+
+        addReducer: function () {
+            var _this = this;
+            var done = this.async();
+
+            var question = {
+                type: 'confirm',
+                name: 'addReducer',
+                message: 'Would you like to add the new reducer to the App?',
+                default: true,
+                store: true,
+            };
+
+            function onAnswer(answers) {
+                _this.addReducer = answers.addReducer;
+                done();
+            }
+
+            this.prompt(question, onAnswer);
+        },
     },
 
 
@@ -138,6 +158,30 @@ module.exports = generators.Base.extend({
                     );
                 }
             }
+        },
+
+        addReducer: function () {
+            if (!this.addReducer) {
+                return;
+            }
+
+            var reducerName = _.camelCase(this.reducerName);
+            var reducerFile = _.kebabCase(this.reducerName);
+
+            var reducersFilePath = this.destinationPath('app', 'client', 'reducers', 'index.js');
+            var reducersSrc = this.fs.read(reducersFilePath);
+
+            var listStr = 'export const reducers = {';
+            var lastItemStr = 'Reducer,\n};';
+
+            var importCmd = 'import { ' + reducerName + 'Reducer } from \'reducers/' + reducerFile + '-reducer\';\n';
+            var listCmd = '    ' + reducerName + ': ' + reducerName + 'Reducer,\n';
+
+            reducersSrc = reducersSrc.replace(listStr, importCmd + '\n' + listStr);
+            reducersSrc = reducersSrc.replace(';\n\nimport', ';\nimport');
+            reducersSrc = reducersSrc.replace(lastItemStr, 'Reducer,\n' + listCmd + '};');
+
+            this.fs.write(reducersFilePath, reducersSrc);
         },
     },
 
