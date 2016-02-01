@@ -21,20 +21,20 @@ const WRONG_VALUES = [
 ];
 
 describe('<%= reducerName %> actions', () => {
-    it('should setValue()', () => {
+    it.skip('should setValue()', () => {
         var action = setValue('foo');
         expect(action.type).to.equal(SET_VALUE);
     });
 
     ACCEPTED_TYPES.forEach(type => {
-        it('should accept n ' + typeof type, () => {
+        it.skip('should accept n ' + typeof type, () => {
             var action = setValue(type);
             expect(action.type).to.equal(SET_VALUE);
         });
     });
 
     WRONG_VALUES.forEach(type => {
-        it('should complain with an ' + typeof type, () => {
+        it.skip('should complain with an ' + typeof type, () => {
             expect(() => {
                 setValue(type);
             }).to.throw(TypeError);

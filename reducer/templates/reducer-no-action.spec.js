@@ -6,7 +6,7 @@ import {
 } from 'reducers/<%= reducerFile %>-reducer';
 
 describe('<%= reducerName %>Reducer', () => {
-    it('should setup its initial state', () => {
+    it.skip('should setup its initial state', () => {
         var expectedState = {
             ...INITIAL_STATE,
         };

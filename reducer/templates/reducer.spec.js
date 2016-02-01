@@ -10,7 +10,7 @@ import {
 } from 'actions/<%= reducerFile %>-actions';
 
 describe('<%= reducerName %>Reducer', () => {
-    it('should setup its initial state', () => {
+    it.skip('should setup its initial state', () => {
         var expectedState = {
             ...INITIAL_STATE,
         };
@@ -18,7 +18,7 @@ describe('<%= reducerName %>Reducer', () => {
         expect(nextState).to.deep.equal(expectedState);
     });
 
-    it('should set value', () => {
+    it.skip('should set value', () => {
         var value = 'new-value' + Date.now();
         var action = setValue(value);
         var expectedState = {

@@ -25,6 +25,7 @@
     "babel-loader": "^5.3.x",
     "bootstrap-sass": "^3.3.x",
     "css-loader": "^0.23.x",
+    "express": "^4.13.x",
     "file-loader": "^0.8.x",
     "http-server": "^0.8.x",
     "img-loader": "^1.2.x",
