@@ -134,7 +134,7 @@ module.exports = generators.Base.extend({
 
             this.fs.copyTpl(
                 this.templatePath('Component.guide.js'),
-                this.destinationPath('app', 'styleguide', 'components', fileName),
+                this.destinationPath('app', 'styleguide', fileName),
                 templateData
             );
         },

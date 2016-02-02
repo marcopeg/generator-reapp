@@ -36,10 +36,10 @@ try {
             var StyleguidePage;
             if (component.plugin) {
                 /* eslint-disable */
-                StyleguidePage = require('../plugins/' + component.plugin + '/styleguide/components/' + component.guideFile);
+                StyleguidePage = require('../plugins/' + component.plugin + '/styleguide/' + component.guideFile);
                 /* eslint-enable */
             } else {
-                StyleguidePage = require('./components/' + component.guideFile);
+                StyleguidePage = require('./' + component.guideFile);
             }
 
             return {
