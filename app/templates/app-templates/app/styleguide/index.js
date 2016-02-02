@@ -21,16 +21,30 @@ require('../client/index.scss');
 
 /* globals __STYLEGUIDE__ */
 var styleguideInfo = __STYLEGUIDE__;
-import { renderMultiComponents, renderStyleguideInfo } from 'reapp-dev-tools';
+
+import {
+    renderMultiComponents,
+    renderStyleguideInfo,
+} from 'reapp-dev-tools';
 
 try {
     renderMultiComponents(
         styleguideTargetEl,
         styleguideInfo.cdw,
         styleguideInfo.components.map(function (component) {
+
+            var StyleguidePage;
+            if (component.plugin) {
+                /* eslint-disable */
+                StyleguidePage = require('../plugins/' + component.plugin + '/styleguide/components/' + component.guideFile);
+                /* eslint-enable */
+            } else {
+                StyleguidePage = require('./components/' + component.guideFile);
+            }
+
             return {
                 name: component.guideFile,
-                def: require('./components/' + component.guideFile),
+                def: StyleguidePage,
             };
         }),
         styleguideInfo.sources,
