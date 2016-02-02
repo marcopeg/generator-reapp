@@ -14,7 +14,7 @@
     "install:tdd": "npm install --save-dev chai@^3.4.x karma@^0.13.x karma-chai@^0.1.x karma-es5-shim@0.0.x karma-mocha@^0.2.x karma-phantomjs-launcher@^0.2.x karma-sinon@^1.0.x karma-webpack@^1.7.x mocha@^2.3.x phantomjs@^1.9.x sinon@^1.17.x karma-sourcemap-loader@^0.3.x",
     "install:cov": "npm install --save-dev isparta-loader@^2.0.x karma-coverage@^0.5.x istanbul-instrumenter-loader@^0.1.x",
     "install:dev": "npm install && npm install chai@^3.4.x karma@^0.13.x karma-chai@^0.1.x karma-es5-shim@0.0.x karma-mocha@^0.2.x karma-phantomjs-launcher@^0.2.x karma-sinon@^1.0.x karma-webpack@^1.7.x mocha@^2.3.x phantomjs@^1.9.x sinon@^1.17.x karma-sourcemap-loader@^0.3.x && npm install isparta-loader@^2.0.x karma-coverage@^0.5.x istanbul-instrumenter-loader@^0.1.x babel-eslint@^4.1.x eslint@^1.10.x eslint-plugin-nodeca@^1.0.x eslint-plugin-react@^3.15.x",
-    "install:full": "npm install && npm run install-lint && npm run install-tdd && npm run install-cov",
+    "install:full": "npm install && npm run install:lint && npm run install:tdd && npm run install:cov",
     "tdd": "./node_modules/karma/bin/karma start ./config/karma.conf.ci.js",
     "cov": "./node_modules/karma/bin/karma start ./config/karma.conf.cov.js"
   },

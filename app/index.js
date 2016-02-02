@@ -152,7 +152,7 @@ module.exports = generators.Base.extend({
 
         npmLint: function () {
             if (this.npmConfig['npm-lint']) {
-                this.spawnCommand('npm', ['run', 'install:tdd']);
+                this.spawnCommand('npm', ['run', 'install:lint']);
             }
         },
 
