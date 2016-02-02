@@ -25,6 +25,7 @@ module.exports = function (config) {
         files: [
             '../node_modules/react/dist/react.js',
             '../app/tests/**/*.spec.js',
+            '../app/plugins/*/tests/**/*.spec.js',
         ],
 
 
@@ -36,6 +37,7 @@ module.exports = function (config) {
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             '../app/tests/**/*.spec.js': ['webpack', 'sourcemap'],
+            '../app/plugins/*/tests/**/*.spec.js': ['webpack', 'sourcemap'],
         },
 
         webpack: webpackConfig,

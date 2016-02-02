@@ -31,7 +31,10 @@ module.exports = function (config) {
             test: /\.js$/,
             loader: 'istanbul-instrumenter',
             exclude: /(tests|node_modules|bower_components)/,
-            include: path.join(process.cwd(), 'app', 'client'),
+            include: [
+                path.join(process.cwd(), 'app', 'client'),
+                path.join(process.cwd(), 'app', 'plugins'),
+            ],
         },
     ];
 
