@@ -1,10 +1,10 @@
 {
   "name": "<%= moduleName %>",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Just another Reapp application",
+  "main": "reapp.js",
   "scripts": {
-    "start": "./node_modules/nodemon/bin/nodemon.js index.js",
+    "start": "./node_modules/nodemon/bin/nodemon.js reapp.js",
     "test": "./node_modules/karma/bin/karma start ./config/karma.conf.js",
     "build": "node ./node_modules/webpack/bin/webpack --config config/webpack.dist.js",
     "build:dev": "node ./node_modules/webpack/bin/webpack --config config/webpack.config.js",

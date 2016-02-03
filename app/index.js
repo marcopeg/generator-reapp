@@ -95,8 +95,8 @@ module.exports = generators.Base.extend({
                 'README.md',
                 'config/client.html',
                 'config/guide.html',
+                'config/reapp.conf.js',
                 'dist/index.html',
-                'app/styleguide/index.js',
             ];
 
             var templateData = {
