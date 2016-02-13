@@ -90,7 +90,9 @@ module.exports = {
     },
     devServer: {
         hot: true,
-        historyApiFallback: true,
+        historyApiFallback: {
+            index: '/config/client.html',
+        },
         stats: {
             colors: true,
         },

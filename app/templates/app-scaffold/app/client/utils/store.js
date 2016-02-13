@@ -4,11 +4,10 @@ import reduxThunk from 'redux-thunk';
 
 import { reducers } from 'reducers';
 const reducer = combineReducers(reducers);
-const middlewares = [reduxThunk];
 
 var store;
 
-export function makeStore(initialState) {
+export function makeStore(initialState = {}, middlewares = [reduxThunk]) {
     var finalCreateStore = applyMiddleware(...middlewares)(createStore);
     store = finalCreateStore(reducer, initialState);
     return store;

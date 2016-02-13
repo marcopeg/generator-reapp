@@ -13,8 +13,8 @@ import ReactDOM from 'react-dom';
 import { Main } from 'utils/main';
 import { makeStore } from 'utils/store';
 
-import { App } from 'containers/App';
 import { initialState } from 'fixtures/initial-state-prod.fixture';
+import { App } from 'containers/App';
 
 export function start(targetEl, payload) {
 

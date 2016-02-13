@@ -4,13 +4,12 @@ import reduxThunk from 'redux-thunk';
 
 import { reducers } from 'reducers';
 const reducer = combineReducers(reducers);
-const middlewares = [reduxThunk];
 
 import { DevTools } from './main-dev';
 
 var store;
 
-export function makeStore(initialState) {
+export function makeStore(initialState = {}, middlewares = [reduxThunk]) {
 
     var persistParam = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
 
