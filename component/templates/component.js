@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export class <%= componentName %> extends React.Component {
+export default class <%= componentName %> extends React.Component {
 
     static propTypes = {
         value: React.PropTypes.string,
