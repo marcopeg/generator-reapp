@@ -1,8 +1,8 @@
 /* eslint max-len:0 */
 
-var _ = require('lodash');
-var fs = require('fs-extra');
-var path = require('path');
+// var _ = require('lodash');
+// var fs = require('fs-extra');
+// var path = require('path');
 var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
