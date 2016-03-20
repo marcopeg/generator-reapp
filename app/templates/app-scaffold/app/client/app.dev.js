@@ -13,8 +13,8 @@ import ReactDOM from 'react-dom';
 import { Main } from 'utils/main-dev';
 import { makeStore } from 'utils/store-dev';
 
-import { DEV as initialState } from 'fixtures/initial-state-dev.fixture';
-import { App } from 'containers/App';
+import initialState from 'fixtures/initial-state-dev.fixture';
+import App from 'containers/App';
 
 export function start(targetEl, payload) {
 
@@ -23,9 +23,12 @@ export function start(targetEl, payload) {
         initialState.app.title = payload.title;
     }
 
+    // create the application Redux store
+    let appStore = makeStore(initialState);
+
     ReactDOM.render((
         <Main
             app={App}
-            store={makeStore(initialState)} />
+            store={appStore} />
     ), targetEl);
 }

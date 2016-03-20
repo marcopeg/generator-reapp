@@ -2,7 +2,7 @@ import React from 'react';
 import { SGPage, SGSection } from 'reapp-dev-tools';
 
 
-import { <%= componentName %> } from 'components/<%= componentName %>';
+import <%= componentName %> from 'components/<%= componentName %>';
 
 export default class <%= componentName %>GuideComponent extends React.Component {
     render() {

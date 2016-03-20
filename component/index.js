@@ -148,7 +148,7 @@ module.exports = generators.Base.extend({
             this.log('# -------------------------- ');
             this.log('#');
             this.log('# Use your component in the App:');
-            this.log('# import { ' + this.componentName + ' } from \'components/' + this.componentName + '\';');
+            this.log('# import ' + this.componentName + ' from \'components/' + this.componentName + '\';');
             if (this.componentGuide) {
                 this.log('#');
                 this.log('# Work on your component:');
