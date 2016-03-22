@@ -1,6 +1,6 @@
 {
   "name": "generator-reapp",
-  "version": "0.0.22",
+  "version": "0.0.24",
   "description": "React/Redux client application",
   "files": [
     "app",

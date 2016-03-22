@@ -18,7 +18,7 @@ export class Main extends React.Component {
 
     render() {
         var { app, routes } = this.props;
-        
+
         return (
             <Provider store={this.props.store}>
                 {routes ? routes : React.createElement(app)}

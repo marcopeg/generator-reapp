@@ -24,6 +24,9 @@ config.plugins = [
     }),
 ];
 
+// remove the alias to development utilities
+config.resolve.alias = {};
+
 // remove development tools
 config.devtool = null;
 config.module.loaders[0].loaders = ['babel'];
