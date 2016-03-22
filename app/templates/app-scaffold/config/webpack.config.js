@@ -31,6 +31,10 @@ module.exports = {
             path.join(process.cwd(), 'app', 'tests'),
             path.join(process.cwd(), 'app', 'plugins'),
         ],
+        alias: {
+            'utils/main': 'utils/main-dev',
+            'utils/store': 'utils/store-dev',
+        },
     },
     module: {
         loaders: [
