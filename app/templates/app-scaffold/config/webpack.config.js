@@ -1,7 +1,10 @@
+/* eslint no-process-env:0 */
+
 var path = require('path');
 var webpack = require('webpack');
 var appEnv = require('../app/env');
 var reappConf = require('./reapp.conf');
+var reappDevTools = require('reapp-dev-tools');
 
 module.exports = {
     devtool: 'sourcemaps',
@@ -21,7 +24,9 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin(appEnv),
+        new webpack.DefinePlugin(Object.assign({}, reappDevTools.json2env(appEnv), {
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        })),
     ],
     resolve: {
         extensions: ['', '.js'],
@@ -91,6 +96,9 @@ module.exports = {
             'es7.classProperties',
             'es7.decorators',
         ],
+    },
+    sassLoader: {
+        data: reappDevTools.json2query(appEnv),
     },
     devServer: {
         hot: true,
