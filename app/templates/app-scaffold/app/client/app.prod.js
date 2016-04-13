@@ -3,8 +3,8 @@
  * app startup script for production purpose
  */
 
- /* eslint no-process-env:0 */
- console.log('NODE_ENV:', process.env.NODE_ENV);
+/* eslint no-process-env:0 */
+console.log('NODE_ENV:', process.env.NODE_ENV);
 
 require('./index.scss');
 
