@@ -32,7 +32,4 @@ if (reapp.isStyleguideActive()) {
 }
 
 // run dev-server
-new WebpackDevServer(
-    webpack(webpackConfig),
-    reapp.config(webpackConfig.devServer)
-).listen(reappCfg.port, reappCfg.host, reapp.callback);
+reapp.start(webpackConfig);
