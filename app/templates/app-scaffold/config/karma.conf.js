@@ -1,10 +1,21 @@
 // Karma configuration
 // Generated on Tue Sep 15 2015 15:29:03 GMT+0200 (CEST)
 
+var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 delete (webpackConfig.entry);
 delete (webpackConfig.output);
-delete (webpackConfig.plugins);
+
+// filter out unnecessary plugins
+webpackConfig.plugins = webpackConfig.plugins.filter(function (plugin) {
+    if (plugin instanceof webpack.HotModuleReplacementPlugin) {
+        return false;
+    }
+    if (plugin instanceof webpack.NoErrorsPlugin) {
+        return false;
+    }
+    return true;
+});
 
 webpackConfig.devtool = 'inline-source-map';
 webpackConfig.module.loaders[0].loaders = ['babel'];
